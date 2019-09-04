@@ -1,64 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/cows/" targetNamespace="http://www.example.org/cows/">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/cows/" targetNamespace="http://www.example.org/cows/">
 
-
-
-
-
-    <complexType name="cow">
-    	<sequence>
-    		<element name="id" type="ID" maxOccurs="1" minOccurs="0"></element>
-    		<element name="electronic-id" type="ID" maxOccurs="1" minOccurs="1"></element>
-    		<element name="fecha_nacimiento" type="date" maxOccurs="1" minOccurs="0"></element>
-    		<element name="peso" type="float" maxOccurs="1" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
+    <xs:complexType name="cow">
+    	<xs:sequence>
+    		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="electronic-id" type="xs:ID" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="fecha_nacimiento" type="xs:date" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="peso" type="xs:float" maxOccurs="1" minOccurs="0"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+  
     
-    <element name="getCowRequest" type="tns:cow"></element>
+    <xs:element name="getCowRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-    <complexType name="cowbcs">
-    	<sequence>
-    		<element name="id" type="ID" maxOccurs="1" minOccurs="0"></element>
-    		<element name="cow_id" type="IDREF" maxOccurs="1" minOccurs="1"></element>
-    		<element name="fecha" type="date" maxOccurs="1" minOccurs="0"></element>
-    		<element name="cc" type="float" maxOccurs="1" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
+    <xs:complexType name="cowbcs">
+    	<xs:sequence>
+    		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="cow_id" type="xs:IDREF" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="fecha" type="xs:date" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="cc" type="xs:float" maxOccurs="1" minOccurs="0"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
 
-
-
-    <element name="getCowResponse" type="tns:cow"></element>
-
-    <element name="createCowRequest" type="tns:cow"></element>
+    <xs:element name="getCowResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     
-    <element name="createCowResponse" type="tns:cow"></element>
+    <xs:element name="createCowRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-
-
-    <element name="createHerdRequest" type="tns:Herd"></element>
+	<xs:element name="createCowResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     
-    <complexType name="Herd">
-    	<sequence>
-    		<element name="id" type="ID" maxOccurs="1" minOccurs="0"></element>
-    		<element name="nombre" type="string" maxOccurs="1" minOccurs="1"></element>
-    		<element name="cows" type="IDREFS" maxOccurs="1" minOccurs="0"></element>
-    	</sequence>
-    </complexType>
-
-    <element name="createHerdResponse" type="tns:Herd"></element>
-
-    <element name="addCowToHerdRequest" type="tns:cowHerdLink"></element>
+    <xs:element name="createHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     
-    <complexType name="cowHerdLink">
-    	<sequence>
-    		<element name="idcow" type="IDREF"></element>
-    		<element name="idherd" type="IDREF"></element>
-    	</sequence>
-    </complexType>
+    <xs:complexType name="Herd">
+    	<xs:sequence>
+    		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="nombre" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="cows" type="xs:IDREFS" maxOccurs="1" minOccurs="0"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
 
-    <element name="addCowToHerdResponse" type="boolean"></element>
+    <xs:element name="createHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCowToHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="link" type="tns:cowHerdLink"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="cowHerdLink">
+    	<xs:sequence>
+    		<xs:element name="idcow" type="xs:IDREF"></xs:element>
+    		<xs:element name="idherd" type="xs:IDREF"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
 
-    <element name="getHerdRequest" type="tns:Herd"></element>
+	<xs:element name="addCowToHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-    <element name="getHerdResponse" type="tns:Herd"></element>
-</schema>
+    <xs:element name="getHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
