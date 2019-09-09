@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://www.example.org/cows/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getCowRequest>
+            <cow>
+            	<id>Test</id>
+            </cow>
+        </gs:getCowRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
