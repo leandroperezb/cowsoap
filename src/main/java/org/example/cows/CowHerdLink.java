@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2019.09.09 a las 07:36:23 PM ART 
+// Generado el: 2019.09.18 a las 03:18:58 PM ART 
 //
 
 
@@ -11,9 +11,11 @@ package org.example.cows;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlIDREF;
+import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -26,8 +28,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idcow" type="{http://www.w3.org/2001/XMLSchema}IDREF"/>
- *         &lt;element name="idherd" type="{http://www.w3.org/2001/XMLSchema}IDREF"/>
+ *         &lt;element name="idcow" type="{http://www.w3.org/2001/XMLSchema}ID"/>
+ *         &lt;element name="idherd" type="{http://www.w3.org/2001/XMLSchema}ID"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -44,23 +46,25 @@ import javax.xml.bind.annotation.XmlType;
 public class CowHerdLink {
 
     @XmlElement(required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object idcow;
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String idcow;
     @XmlElement(required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object idherd;
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String idherd;
 
     /**
      * Obtiene el valor de la propiedad idcow.
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public Object getIdcow() {
+    public String getIdcow() {
         return idcow;
     }
 
@@ -69,10 +73,10 @@ public class CowHerdLink {
      * 
      * @param value
      *     allowed object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public void setIdcow(Object value) {
+    public void setIdcow(String value) {
         this.idcow = value;
     }
 
@@ -81,10 +85,10 @@ public class CowHerdLink {
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public Object getIdherd() {
+    public String getIdherd() {
         return idherd;
     }
 
@@ -93,10 +97,10 @@ public class CowHerdLink {
      * 
      * @param value
      *     allowed object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public void setIdherd(Object value) {
+    public void setIdherd(String value) {
         this.idherd = value;
     }
 

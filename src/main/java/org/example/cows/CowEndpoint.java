@@ -11,10 +11,12 @@ public class CowEndpoint {
 	private static final String NAMESPACE_URI = "http://www.example.org/cows/";
 	
 	private CowRepository cowRepository;
+	private HerdRepository herdRepository;
 	 
     @Autowired
-    public CowEndpoint(CowRepository countryRepository) {
+    public CowEndpoint(CowRepository countryRepository, HerdRepository herdRepository) {
         this.cowRepository = countryRepository;
+        this.herdRepository = herdRepository;
     }
  
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCowRequest")
@@ -22,6 +24,14 @@ public class CowEndpoint {
     public GetCowResponse getCow(@RequestPayload GetCowRequest request) {
         GetCowResponse response = new GetCowResponse();
         response.setCow(cowRepository.findCow(request.getCow().getId()));
+        return response;
+    }
+    
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getHerdRequest")
+    @ResponsePayload
+    public GetHerdResponse getHerd(@RequestPayload GetHerdRequest request) {
+        GetHerdResponse response = new GetHerdResponse();
+        response.setHerd(herdRepository.findHerd(request.getHerd().getId()));
         return response;
     }
 }

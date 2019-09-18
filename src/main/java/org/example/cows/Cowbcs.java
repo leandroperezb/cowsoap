@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2019.09.09 a las 07:36:23 PM ART 
+// Generado el: 2019.09.18 a las 03:18:58 PM ART 
 //
 
 
@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -31,7 +30,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}ID" minOccurs="0"/>
- *         &lt;element name="cow_id" type="{http://www.w3.org/2001/XMLSchema}IDREF"/>
+ *         &lt;element name="cow_id" type="{http://www.w3.org/2001/XMLSchema}ID"/>
  *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/>
  *         &lt;element name="cc" type="{http://www.w3.org/2001/XMLSchema}float" minOccurs="0"/>
  *       &lt;/sequence>
@@ -56,9 +55,10 @@ public class Cowbcs {
     @XmlSchemaType(name = "ID")
     protected String id;
     @XmlElement(name = "cow_id", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object cowId;
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String cowId;
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar fecha;
     protected Float cc;
@@ -92,10 +92,10 @@ public class Cowbcs {
      * 
      * @return
      *     possible object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public Object getCowId() {
+    public String getCowId() {
         return cowId;
     }
 
@@ -104,10 +104,10 @@ public class Cowbcs {
      * 
      * @param value
      *     allowed object is
-     *     {@link Object }
+     *     {@link String }
      *     
      */
-    public void setCowId(Object value) {
+    public void setCowId(String value) {
         this.cowId = value;
     }
 

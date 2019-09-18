@@ -2,10 +2,10 @@
                   xmlns:gs="http://www.example.org/cows/">
     <soapenv:Header/>
     <soapenv:Body>
-        <gs:getCowRequest>
-            <cow>
-            	<id>Test</id>
-            </cow>
-        </gs:getCowRequest>
+        <gs:getHerdRequest>
+            <herd>
+            	<id>Test2</id>
+            </herd>
+        </gs:getHerdRequest>
     </soapenv:Body>
 </soapenv:Envelope>

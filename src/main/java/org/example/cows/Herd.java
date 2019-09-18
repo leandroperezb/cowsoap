@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2019.09.09 a las 07:36:23 PM ART 
+// Generado el: 2019.09.18 a las 03:18:58 PM ART 
 //
 
 
@@ -14,8 +14,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
-import javax.xml.bind.annotation.XmlList;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -34,7 +32,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}ID" minOccurs="0"/>
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="cows" type="{http://www.w3.org/2001/XMLSchema}IDREFS" minOccurs="0"/>
+ *         &lt;element name="cows" type="{http://www.example.org/cows/}cow" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -57,10 +55,7 @@ public class Herd {
     protected String id;
     @XmlElement(required = true)
     protected String nombre;
-    @XmlList
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREFS")
-    protected List<Object> cows;
+    protected List<Cow> cows;
 
     /**
      * Obtiene el valor de la propiedad id.
@@ -128,13 +123,13 @@ public class Herd {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
+     * {@link Cow }
      * 
      * 
      */
-    public List<Object> getCows() {
+    public List<Cow> getCows() {
         if (cows == null) {
-            cows = new ArrayList<Object>();
+            cows = new ArrayList<Cow>();
         }
         return this.cows;
     }

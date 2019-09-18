@@ -26,7 +26,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	@Bean(name = "cows")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema cowsSchema) {
 	    DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-	    wsdl11Definition.setPortTypeName("CountriesPort");
+	    wsdl11Definition.setPortTypeName("CowsPort");
 	    wsdl11Definition.setLocationUri("/ws");
 	    wsdl11Definition.setTargetNamespace("http://www.example.org/cows/");
 	    wsdl11Definition.setSchema(cowsSchema);
