@@ -22,7 +22,7 @@
     <xs:complexType name="cowbcs">
     	<xs:sequence>
     		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>
-    		<xs:element name="cow_id" type="xs:IDREF" maxOccurs="1" minOccurs="1"></xs:element>
+    		<xs:element name="cow_id" type="xs:ID" maxOccurs="1" minOccurs="1"></xs:element>
     		<xs:element name="fecha" type="xs:date" maxOccurs="1" minOccurs="0"></xs:element>
     		<xs:element name="cc" type="xs:float" maxOccurs="1" minOccurs="0"></xs:element>
     	</xs:sequence>
@@ -64,7 +64,7 @@
     	<xs:sequence>
     		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>
     		<xs:element name="nombre" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
-    		<xs:element name="cows" type="xs:IDREFS" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="cows" type="tns:cow" maxOccurs="unbounded" minOccurs="0"></xs:element>
     	</xs:sequence>
     </xs:complexType>
 
@@ -86,8 +86,8 @@
     
     <xs:complexType name="cowHerdLink">
     	<xs:sequence>
-    		<xs:element name="idcow" type="xs:IDREF"></xs:element>
-    		<xs:element name="idherd" type="xs:IDREF"></xs:element>
+    		<xs:element name="idcow" type="xs:ID"></xs:element>
+    		<xs:element name="idherd" type="xs:ID"></xs:element>
     	</xs:sequence>
     </xs:complexType>
 

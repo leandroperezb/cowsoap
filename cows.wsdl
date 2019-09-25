@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.example.org/cows/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/cows/" targetNamespace="http://www.example.org/cows/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/cows/">
+
+    <xs:complexType name="cow">
+    	<xs:sequence>
+    		<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+    		<xs:element maxOccurs="1" minOccurs="1" name="electronic-id" type="xs:ID"/>
+    		<xs:element maxOccurs="1" minOccurs="0" name="fecha_nacimiento" type="xs:date"/>
+    		<xs:element maxOccurs="1" minOccurs="0" name="peso" type="xs:float"/>
+    	</xs:sequence>
+    </xs:complexType>
+  
+    
+    <xs:element name="getCowRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="cowbcs">
+    	<xs:sequence>
+    		<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+    		<xs:element maxOccurs="1" minOccurs="1" name="cow_id" type="xs:ID"/>
+    		<xs:element maxOccurs="1" minOccurs="0" name="fecha" type="xs:date"/>
+    		<xs:element maxOccurs="1" minOccurs="0" name="cc" type="xs:float"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getCowResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="createCowRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+	<xs:element name="createCowResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="createHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="Herd">
+    	<xs:sequence>
+    		<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+    		<xs:element maxOccurs="1" minOccurs="1" name="nombre" type="xs:string"/>
+    		<xs:element maxOccurs="unbounded" minOccurs="0" name="cows" type="tns:cow"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="createHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="addCowToHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="link" type="tns:cowHerdLink"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="cowHerdLink">
+    	<xs:sequence>
+    		<xs:element name="idcow" type="xs:ID"/>
+    		<xs:element name="idherd" type="xs:ID"/>
+    	</xs:sequence>
+    </xs:complexType>
+
+	<xs:element name="addCowToHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="respuesta" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getHerdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getHerdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="herd" type="tns:Herd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createCowRequest">
+    <wsdl:part element="tns:createCowRequest" name="createCowRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHerdRequest">
+    <wsdl:part element="tns:getHerdRequest" name="getHerdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCowResponse">
+    <wsdl:part element="tns:getCowResponse" name="getCowResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createHerdRequest">
+    <wsdl:part element="tns:createHerdRequest" name="createHerdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCowToHerdResponse">
+    <wsdl:part element="tns:addCowToHerdResponse" name="addCowToHerdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCowToHerdRequest">
+    <wsdl:part element="tns:addCowToHerdRequest" name="addCowToHerdRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCowRequest">
+    <wsdl:part element="tns:getCowRequest" name="getCowRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHerdResponse">
+    <wsdl:part element="tns:getHerdResponse" name="getHerdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createHerdResponse">
+    <wsdl:part element="tns:createHerdResponse" name="createHerdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createCowResponse">
+    <wsdl:part element="tns:createCowResponse" name="createCowResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CowsPort">
+    <wsdl:operation name="createCow">
+      <wsdl:input message="tns:createCowRequest" name="createCowRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createCowResponse" name="createCowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHerd">
+      <wsdl:input message="tns:getHerdRequest" name="getHerdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getHerdResponse" name="getHerdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCow">
+      <wsdl:input message="tns:getCowRequest" name="getCowRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getCowResponse" name="getCowResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createHerd">
+      <wsdl:input message="tns:createHerdRequest" name="createHerdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:createHerdResponse" name="createHerdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCowToHerd">
+      <wsdl:input message="tns:addCowToHerdRequest" name="addCowToHerdRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:addCowToHerdResponse" name="addCowToHerdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CowsPortSoap11" type="tns:CowsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createCow">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createCowRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createCowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCow">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCowRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCowToHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addCowToHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCowToHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CowsPortService">
+    <wsdl:port binding="tns:CowsPortSoap11" name="CowsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
