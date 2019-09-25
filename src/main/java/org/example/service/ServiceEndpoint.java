@@ -1,5 +1,6 @@
-package org.example.cows;
+package org.example.service;
 
+import org.example.cows.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -7,14 +8,14 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-public class CowEndpoint {
+public class ServiceEndpoint {
 	private static final String NAMESPACE_URI = "http://www.example.org/cows/";
 	
 	private CowRepository cowRepository;
 	private HerdRepository herdRepository;
 	 
     @Autowired
-    public CowEndpoint(CowRepository countryRepository, HerdRepository herdRepository) {
+    public ServiceEndpoint(CowRepository countryRepository, HerdRepository herdRepository) {
         this.cowRepository = countryRepository;
         this.herdRepository = herdRepository;
     }
@@ -27,11 +28,14 @@ public class CowEndpoint {
         return response;
     }
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getHerdRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createCowRequest")
     @ResponsePayload
-    public GetHerdResponse getHerd(@RequestPayload GetHerdRequest request) {
-        GetHerdResponse response = new GetHerdResponse();
-        response.setHerd(herdRepository.findHerd(request.getHerd().getId()));
+    public CreateCowResponse createCow(@RequestPayload CreateCowRequest request) {
+    	CreateCowResponse response = new CreateCowResponse();
+    	Cow c = request.getCow();
+    	cowRepository.storeCow(c);
+        response.setCow(c);
         return response;
     }
+    
 }

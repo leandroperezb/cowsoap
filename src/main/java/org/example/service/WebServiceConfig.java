@@ -1,4 +1,4 @@
-package org.example.cows;
+package org.example.service;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

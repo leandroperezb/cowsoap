@@ -27,3 +27,4 @@ target/*
 .classpath
 .project
 .springBeans
+src/main/java/org/example/cows/*
