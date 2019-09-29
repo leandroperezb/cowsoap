@@ -61,6 +61,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getLastBcsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getLastBcsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bcs" type="tns:cowbcs"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:complexType name="Herd">
     	<xs:sequence>
     		<xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
@@ -125,6 +141,10 @@
     <wsdl:part element="tns:getHerdRequest" name="getHerdRequest">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getLastBcsResponse">
+    <wsdl:part element="tns:getLastBcsResponse" name="getLastBcsResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getCowResponse">
     <wsdl:part element="tns:getCowResponse" name="getCowResponse">
     </wsdl:part>
@@ -157,6 +177,10 @@
     <wsdl:part element="tns:createCowResponse" name="createCowResponse">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getLastBcsRequest">
+    <wsdl:part element="tns:getLastBcsRequest" name="getLastBcsRequest">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="CowsPort">
     <wsdl:operation name="createCow">
       <wsdl:input message="tns:createCowRequest" name="createCowRequest">
@@ -168,6 +192,12 @@
       <wsdl:input message="tns:getHerdRequest" name="getHerdRequest">
     </wsdl:input>
       <wsdl:output message="tns:getHerdResponse" name="getHerdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBcs">
+      <wsdl:input message="tns:getLastBcsRequest" name="getLastBcsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getLastBcsResponse" name="getLastBcsResponse">
     </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getCow">
@@ -206,6 +236,15 @@
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="getHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBcs">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getLastBcsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastBcsResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>

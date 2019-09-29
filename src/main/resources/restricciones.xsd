@@ -60,6 +60,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="getLastBcsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cow" type="tns:cow"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="getLastBcsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bcs" type="tns:cowbcs"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:complexType name="Herd">
     	<xs:sequence>
     		<xs:element name="id" type="xs:ID" maxOccurs="1" minOccurs="0"></xs:element>

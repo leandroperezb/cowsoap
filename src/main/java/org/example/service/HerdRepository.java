@@ -12,13 +12,15 @@ import org.springframework.stereotype.Component;
 public class HerdRepository {
 
 	private static final Map<String, Herd> herds = new HashMap<>();
+	private static long ultimoId = 0;
 
 	@PostConstruct
 	public void initData() {
 		// initialize herds map
 	}
 	
-	public void storeHerd(Herd h) {
+	public void newHerd(Herd h) {
+		h.setId(String.valueOf(++ultimoId));
 		herds.put(h.getId(), h);
 	}
 
