@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="13a60fcf-bec8-4de8-8296-ae400514303c" activeEnvironment="Default" name="cows" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="079ae5c3-0920-4276-af66-571708403ed0" wsaVersion="NONE" name="CowsPortSoap11" type="wsdl" bindingName="{http://www.example.org/cows/}CowsPortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/media/leandro/Disco2/Repos/cowsoap/cows.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/media/leandro/Disco2/Repos/cowsoap/cows.wsdl"><con:part><con:url>file:/media/leandro/Disco2/Repos/cowsoap/cows.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.example.org/cows/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.example.org/cows/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/cows/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.example.org/cows/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="cow">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="electronic-id" type="xs:ID"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="fecha_nacimiento" type="xs:date"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="peso" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCowRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cow" type="tns:cow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="cowbcs">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="cow_id" type="xs:ID"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="fecha" type="xs:date"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="cc" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCowResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cow" type="tns:cow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createCowRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cow" type="tns:cow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createCowResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cow" type="tns:cow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createHerdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="herd" type="tns:Herd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getLastBcsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cow" type="tns:cow"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getLastBcsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="bcs" type="tns:cowbcs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Herd">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="id" type="xs:ID"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="nombre" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="cows" type="tns:cow"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="createHerdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="herd" type="tns:Herd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addCowToHerdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="link" type="tns:cowHerdLink"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="cowHerdLink">
+        <xs:sequence>
+          <xs:element name="idcow" type="xs:ID"/>
+          <xs:element name="idherd" type="xs:ID"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="addCowToHerdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="respuesta" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHerdRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="herd" type="tns:Herd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getHerdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="herd" type="tns:Herd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createCowRequest">
+    <wsdl:part element="tns:createCowRequest" name="createCowRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHerdRequest">
+    <wsdl:part element="tns:getHerdRequest" name="getHerdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastBcsResponse">
+    <wsdl:part element="tns:getLastBcsResponse" name="getLastBcsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCowResponse">
+    <wsdl:part element="tns:getCowResponse" name="getCowResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createHerdRequest">
+    <wsdl:part element="tns:createHerdRequest" name="createHerdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCowToHerdResponse">
+    <wsdl:part element="tns:addCowToHerdResponse" name="addCowToHerdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCowToHerdRequest">
+    <wsdl:part element="tns:addCowToHerdRequest" name="addCowToHerdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCowRequest">
+    <wsdl:part element="tns:getCowRequest" name="getCowRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getHerdResponse">
+    <wsdl:part element="tns:getHerdResponse" name="getHerdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createHerdResponse">
+    <wsdl:part element="tns:createHerdResponse" name="createHerdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createCowResponse">
+    <wsdl:part element="tns:createCowResponse" name="createCowResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLastBcsRequest">
+    <wsdl:part element="tns:getLastBcsRequest" name="getLastBcsRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CowsPort">
+    <wsdl:operation name="createCow">
+      <wsdl:input message="tns:createCowRequest" name="createCowRequest"></wsdl:input>
+      <wsdl:output message="tns:createCowResponse" name="createCowResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHerd">
+      <wsdl:input message="tns:getHerdRequest" name="getHerdRequest"></wsdl:input>
+      <wsdl:output message="tns:getHerdResponse" name="getHerdResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBcs">
+      <wsdl:input message="tns:getLastBcsRequest" name="getLastBcsRequest"></wsdl:input>
+      <wsdl:output message="tns:getLastBcsResponse" name="getLastBcsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCow">
+      <wsdl:input message="tns:getCowRequest" name="getCowRequest"></wsdl:input>
+      <wsdl:output message="tns:getCowResponse" name="getCowResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createHerd">
+      <wsdl:input message="tns:createHerdRequest" name="createHerdRequest"></wsdl:input>
+      <wsdl:output message="tns:createHerdResponse" name="createHerdResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCowToHerd">
+      <wsdl:input message="tns:addCowToHerdRequest" name="addCowToHerdRequest"></wsdl:input>
+      <wsdl:output message="tns:addCowToHerdResponse" name="addCowToHerdResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CowsPortSoap11" type="tns:CowsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createCow">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createCowRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createCowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBcs">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getLastBcsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLastBcsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCow">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCowRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCowResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCowToHerd">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addCowToHerdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addCowToHerdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CowsPortService">
+    <wsdl:port binding="tns:CowsPortSoap11" name="CowsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="b58cd991-b267-4093-ac38-83eac9837c30" isOneWay="false" action="" name="addCowToHerd" bindingOperationName="addCowToHerd" type="Request-Response" outputName="addCowToHerdResponse" inputName="addCowToHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a86573e-4f9f-49fc-a583-220e84caeacc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:addCowToHerdRequest>
+         <link>
+            <idcow>?</idcow>
+            <idherd>?</idherd>
+         </link>
+      </cows:addCowToHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/addCowToHerdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="336bf47b-a842-435e-a0e8-5b69ef388d34" isOneWay="false" action="" name="createCow" bindingOperationName="createCow" type="Request-Response" outputName="createCowResponse" inputName="createCowRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0d53997d-c606-4222-859f-79f7519d7582" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:createCowRequest>
+         <cow>
+            <electronic-id>891232</electronic-id>
+            <!--Optional:-->
+            <fecha_nacimiento>2008-05-14</fecha_nacimiento>
+            <!--Optional:-->
+            <peso>86</peso>
+         </cow>
+      </cows:createCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createCowRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="33305784-2a50-46be-9e38-4130533da657" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:createCowRequest>
+         <cow>
+            <electronic-id>45535</electronic-id>
+            <!--Optional:-->
+            <fecha_nacimiento>2015-09-01</fecha_nacimiento>
+            <!--Optional:-->
+            <peso>140</peso>
+         </cow>
+      </cows:createCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createCowRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3ce4b604-a6d4-4dbc-9fac-f96fb22dafa7" isOneWay="false" action="" name="createHerd" bindingOperationName="createHerd" type="Request-Response" outputName="createHerdResponse" inputName="createHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f59b4c2-32aa-4993-8643-152a5a8cd327" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:createHerdRequest>
+         <herd>
+            <!--Optional:-->
+            <id>?</id>
+            <nombre>?</nombre>
+            <!--Zero or more repetitions:-->
+            <cows>
+               <!--Optional:-->
+               <id>?</id>
+               <electronic-id>?</electronic-id>
+               <!--Optional:-->
+               <fecha_nacimiento>?</fecha_nacimiento>
+               <!--Optional:-->
+               <peso>?</peso>
+            </cows>
+         </herd>
+      </cows:createHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createHerdRequest"/></con:call></con:operation><con:operation id="e89758f2-9db7-4485-be3f-768f7bb99b47" isOneWay="false" action="" name="getCow" bindingOperationName="getCow" type="Request-Response" outputName="getCowResponse" inputName="getCowRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8265119-042c-4130-8ab7-f167574f81c1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getCowRequest>
+         <cow>
+            <!--Optional:-->
+            <id>?</id>
+            <electronic-id>?</electronic-id>
+            <!--Optional:-->
+            <fecha_nacimiento>?</fecha_nacimiento>
+            <!--Optional:-->
+            <peso>?</peso>
+         </cow>
+      </cows:getCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getCowRequest"/></con:call></con:operation><con:operation id="e6c49a2f-c5bc-4c02-bedf-bd9b7f092625" isOneWay="false" action="" name="getHerd" bindingOperationName="getHerd" type="Request-Response" outputName="getHerdResponse" inputName="getHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cfa99319-0ba2-4bc1-a2b8-7dcf11c7ab52" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getHerdRequest>
+         <herd>
+            <!--Optional:-->
+            <id>?</id>
+            <nombre>?</nombre>
+            <!--Zero or more repetitions:-->
+            <cows>
+               <!--Optional:-->
+               <id>?</id>
+               <electronic-id>?</electronic-id>
+               <!--Optional:-->
+               <fecha_nacimiento>?</fecha_nacimiento>
+               <!--Optional:-->
+               <peso>?</peso>
+            </cows>
+         </herd>
+      </cows:getHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getHerdRequest"/></con:call></con:operation><con:operation id="68187780-8694-41db-ba0e-1b2bbfea5289" isOneWay="false" action="" name="getLastBcs" bindingOperationName="getLastBcs" type="Request-Response" outputName="getLastBcsResponse" inputName="getLastBcsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aba02632-b511-4fa6-8b86-e9dce483cbd2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getLastBcsRequest>
+         <cow>
+            <id>1</id>
+         </cow>
+      </cows:getLastBcsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getLastBcsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

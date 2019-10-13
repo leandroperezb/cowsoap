@@ -37,7 +37,7 @@ public class CowRepository {
 	
 	public Cowbcs getLastBcs(Cow c) {
 		Cowbcs respuesta = new Cowbcs();
-		respuesta.setCc((float) Math.random() * 5);
+		respuesta.setCc((float) Math.random() * 8 + 1);
 		respuesta.setCowId(c.getId());
 		respuesta.setId(String.valueOf(++ultimoIdBcs));
 		
