@@ -241,13 +241,33 @@
       <soap:address location="http://localhost:8080/ws"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="b58cd991-b267-4093-ac38-83eac9837c30" isOneWay="false" action="" name="addCowToHerd" bindingOperationName="addCowToHerd" type="Request-Response" outputName="addCowToHerdResponse" inputName="addCowToHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a86573e-4f9f-49fc-a583-220e84caeacc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="b58cd991-b267-4093-ac38-83eac9837c30" isOneWay="false" action="" name="addCowToHerd" bindingOperationName="addCowToHerd" type="Request-Response" outputName="addCowToHerdResponse" inputName="addCowToHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a86573e-4f9f-49fc-a583-220e84caeacc" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
    <soapenv:Header/>
    <soapenv:Body>
       <cows:addCowToHerdRequest>
          <link>
-            <idcow>?</idcow>
-            <idherd>?</idherd>
+            <idcow>1</idcow>
+            <idherd>1</idherd>
+         </link>
+      </cows:addCowToHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/addCowToHerdRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="62c37d58-0464-4a15-a655-64498cdcbb52" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:addCowToHerdRequest>
+         <link>
+            <idcow>3</idcow>
+            <idherd>1</idherd>
+         </link>
+      </cows:addCowToHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/addCowToHerdRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="50c81de9-f1e9-4f11-843b-ce5ca3324cce" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:addCowToHerdRequest>
+         <link>
+            <idcow>2</idcow>
+            <idherd>2</idherd>
          </link>
       </cows:addCowToHerdRequest>
    </soapenv:Body>
@@ -277,69 +297,97 @@
          </cow>
       </cows:createCowRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createCowRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3ce4b604-a6d4-4dbc-9fac-f96fb22dafa7" isOneWay="false" action="" name="createHerd" bindingOperationName="createHerd" type="Request-Response" outputName="createHerdResponse" inputName="createHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f59b4c2-32aa-4993-8643-152a5a8cd327" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createCowRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1c491d64-894b-4bc8-94b2-b9bbb7043411" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:createCowRequest>
+         <cow>
+            <electronic-id>444332</electronic-id>
+            <!--Optional:-->
+            <fecha_nacimiento>2012-05-11</fecha_nacimiento>
+            <!--Optional:-->
+            <peso>99</peso>
+         </cow>
+      </cows:createCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createCowRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3ce4b604-a6d4-4dbc-9fac-f96fb22dafa7" isOneWay="false" action="" name="createHerd" bindingOperationName="createHerd" type="Request-Response" outputName="createHerdResponse" inputName="createHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f59b4c2-32aa-4993-8643-152a5a8cd327" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
    <soapenv:Header/>
    <soapenv:Body>
       <cows:createHerdRequest>
          <herd>
-            <!--Optional:-->
-            <id>?</id>
-            <nombre>?</nombre>
-            <!--Zero or more repetitions:-->
-            <cows>
-               <!--Optional:-->
-               <id>?</id>
-               <electronic-id>?</electronic-id>
-               <!--Optional:-->
-               <fecha_nacimiento>?</fecha_nacimiento>
-               <!--Optional:-->
-               <peso>?</peso>
-            </cows>
+            <nombre>Rodeo 1</nombre>
          </herd>
       </cows:createHerdRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createHerdRequest"/></con:call></con:operation><con:operation id="e89758f2-9db7-4485-be3f-768f7bb99b47" isOneWay="false" action="" name="getCow" bindingOperationName="getCow" type="Request-Response" outputName="getCowResponse" inputName="getCowRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8265119-042c-4130-8ab7-f167574f81c1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createHerdRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="3a38f8ec-2630-4935-b836-a5f7c169c014" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:createHerdRequest>
+         <herd>
+            <nombre>Rodeo 2</nombre>
+         </herd>
+      </cows:createHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/createHerdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e89758f2-9db7-4485-be3f-768f7bb99b47" isOneWay="false" action="" name="getCow" bindingOperationName="getCow" type="Request-Response" outputName="getCowResponse" inputName="getCowRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8265119-042c-4130-8ab7-f167574f81c1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
    <soapenv:Header/>
    <soapenv:Body>
       <cows:getCowRequest>
          <cow>
-            <!--Optional:-->
-            <id>?</id>
-            <electronic-id>?</electronic-id>
-            <!--Optional:-->
-            <fecha_nacimiento>?</fecha_nacimiento>
-            <!--Optional:-->
-            <peso>?</peso>
+            <id>1</id>
          </cow>
       </cows:getCowRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getCowRequest"/></con:call></con:operation><con:operation id="e6c49a2f-c5bc-4c02-bedf-bd9b7f092625" isOneWay="false" action="" name="getHerd" bindingOperationName="getHerd" type="Request-Response" outputName="getHerdResponse" inputName="getHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cfa99319-0ba2-4bc1-a2b8-7dcf11c7ab52" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getCowRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="18c9e808-9743-48ba-b604-e5b2e3fc7da3" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getCowRequest>
+         <cow>
+            <id>2</id>
+         </cow>
+      </cows:getCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getCowRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="fdaa5c75-2f30-4ef6-8118-e32a109fa4cd" name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getCowRequest>
+         <cow>
+            <id>3</id>
+         </cow>
+      </cows:getCowRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getCowRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e6c49a2f-c5bc-4c02-bedf-bd9b7f092625" isOneWay="false" action="" name="getHerd" bindingOperationName="getHerd" type="Request-Response" outputName="getHerdResponse" inputName="getHerdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cfa99319-0ba2-4bc1-a2b8-7dcf11c7ab52" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
    <soapenv:Header/>
    <soapenv:Body>
       <cows:getHerdRequest>
          <herd>
-            <!--Optional:-->
-            <id>?</id>
-            <nombre>?</nombre>
-            <!--Zero or more repetitions:-->
-            <cows>
-               <!--Optional:-->
-               <id>?</id>
-               <electronic-id>?</electronic-id>
-               <!--Optional:-->
-               <fecha_nacimiento>?</fecha_nacimiento>
-               <!--Optional:-->
-               <peso>?</peso>
-            </cows>
+            <id>1</id>
          </herd>
       </cows:getHerdRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getHerdRequest"/></con:call></con:operation><con:operation id="68187780-8694-41db-ba0e-1b2bbfea5289" isOneWay="false" action="" name="getLastBcs" bindingOperationName="getLastBcs" type="Request-Response" outputName="getLastBcsResponse" inputName="getLastBcsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aba02632-b511-4fa6-8b86-e9dce483cbd2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getHerdRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6949b586-f612-4b01-b6dd-5b0fb757ca9f" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getHerdRequest>
+         <herd>
+            <id>2</id>
+         </herd>
+      </cows:getHerdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getHerdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="68187780-8694-41db-ba0e-1b2bbfea5289" isOneWay="false" action="" name="getLastBcs" bindingOperationName="getLastBcs" type="Request-Response" outputName="getLastBcsResponse" inputName="getLastBcsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="aba02632-b511-4fa6-8b86-e9dce483cbd2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
    <soapenv:Header/>
    <soapenv:Body>
       <cows:getLastBcsRequest>
          <cow>
             <id>1</id>
+         </cow>
+      </cows:getLastBcsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/cows/CowsPort/getLastBcsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1d55392d-a90f-4a13-9b64-994448c82332" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cows="http://www.example.org/cows/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cows:getLastBcsRequest>
+         <cow>
+            <id>2</id>
          </cow>
       </cows:getLastBcsRequest>
    </soapenv:Body>
